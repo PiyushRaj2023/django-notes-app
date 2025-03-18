@@ -1,0 +1,28 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Notes App</title>
+    <style>
+        body { font-family: Arial, sans-serif; background: #222; color: #fff; text-align: center; }
+        a { color: #1e90ff; }
+        .container { max-width: 500px; margin: auto; padding: 20px; background: #333; border-radius: 8px; }
+        .btn { background: #1e90ff; color: white; padding: 10px; display: inline-block; text-decoration: none; border-radius: 5px; }
+        .btn-danger { background: red; }
+    </style>
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+
+</head>
+<body>
+    <div class="container">
+        <h1>Notes App</h1>
+        {% if user.is_authenticated %}
+            <a href="{% url 'logout' %}" class="btn">Logout</a>
+        {% endif %}
+        <hr>
+        {% block content %}{% endblock %}
+    </div>
+</body>
+</html>
